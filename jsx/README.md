@@ -93,6 +93,6 @@ class App extends React.Component {
 }
 export default App;
 ```
-### **命令约定(Naming Convention)**
+### **命名约定(Naming Convention)**
 HTML标签使用小写，而React组件以**大写**字母为首  <br />
 **【注意】**HTML中的class、for属性在React中分别用className、htmlFor替换

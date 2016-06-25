@@ -35,13 +35,3 @@ Component DID UPDATE!
 Component WILL UNMOUNT!
 ```
 
-
-
-
-
-### 强制更新ForceUpdate
-可以使用forceUpdate()强制更新组件
-
-### 查找DOM节点Find Dom Node
-可以使用ReactDOM.findDOMNode()方法操作真正的DOM
-例子：点击按钮，查找id为myDiv的DOM节点，改变成绿色

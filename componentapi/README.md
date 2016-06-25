@@ -9,8 +9,6 @@
 本文介绍了组件API：setState(), forceUpdate 和 ReactDOM.findDOMNode()
 在es6语法中需要手动bind绑定this，将在下面的例子中看到使用this.method.bind(this)绑定
 ```
-In this tutorial we will explain React component API. We will show you three methods: setState(), forceUpdate and ReactDOM.findDOMNode().
-In new ES6 classes we have to manually bind this. You will see in examples below that we are using this.method.bind(this).
 
 ### 设置状态setState()
 setState()方法用于更新组件state, 在原state状态基础上更改state
