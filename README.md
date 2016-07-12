@@ -1,27 +1,29 @@
 # react-with-es6
 
-### [搭建React开发环境](./environment_setup)
+#### [ES6语法基础](./00-es6-notes)
 
-### [JSX语法](./jsx)
+#### [搭建React开发环境](./environment_setup)
 
-### [Components组件](./components)
+#### [JSX语法](./jsx)
 
-### [state状态和props属性](./state_props)
+#### [Components组件](./components)
 
-### [Components组件的API](./componentapi)
+#### [state状态和props属性](./state_props)
 
-### [Components组件生命周期](./lifecyclemethods)
+#### [Components组件的API](./componentapi)
 
-### [Forms表单](./forms)
+#### [Components组件生命周期](./lifecyclemethods)
 
-### [Event事件](./events)
+#### [Forms表单](./forms)
 
-### [ref元素引用](./ref)
+#### [Event事件](./events)
 
-### [key键属性](./key)
+#### [ref元素引用](./ref)
 
-### [router路由](./router)
+#### [key键属性](./key)
 
-### [redux架构](./redux)
+#### [router路由](./router)
 
-### [Animations动画](./animations)
+#### [redux架构](./redux)
+
+#### [Animations动画](./animations)
