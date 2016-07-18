@@ -2,11 +2,12 @@
 ### 01-变量和参数
 
 * 一、const、let与原var
-* 二、=>箭头函数（Arrow Functions）
-* 三、对象和数组解构(Destructuring)
-* 四、参数默认值
-* 五、Spread / Rest 操作符
-* 六、模板语法和分隔符
+* 二、对象和数组解构(Destructuring)
+* 三、参数默认值
+* 四、Spread展开 / Rest剩余 操作符
+* 五、模板语法和分隔符
+* 六、对象表达式
+* 七、把对象的值复制一份到另一个对象(Object.assign())
 
 ### 02-class类
 
