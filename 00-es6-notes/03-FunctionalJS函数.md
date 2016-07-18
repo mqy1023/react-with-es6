@@ -71,6 +71,14 @@ const doubled = numbers.map(n => n * 2);
 console.log(doubled); //[2, 4, 6, 8]
 ```
 
+7、返回一个对象
+```
+let funcObj = () => ({
+	obj: 123
+})
+//相当于return返回了{obj: 123}对象
+```
+
 #### 二、箭头作为异步callback
 ```
 this.name = "Taylor";
