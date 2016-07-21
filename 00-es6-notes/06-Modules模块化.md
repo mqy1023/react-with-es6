@@ -69,22 +69,38 @@ define(["employee"], function(Employee){
 });
 ```
 #### 四、ES6
+一个ES6模块(module)是一个包含js代码的文件 <br />
+1、Export <br />
+可以export出函数、class、var、let、const
 ```
-export class Employee {
-  constructor(name) {
-    this._name = name;
-  }
-  get name() {
-    return this._name;
-  }
-  doWork {
-    return `${this._name} is working`;
-  }
+//utility.js
+function generateRandom() {
+  return Math.random();
 }
+function sum(a, b) {
+  return a + b;
+}
+export { generateRandom, sum }
 ```
+2、Default Exports
 ```
-import {Employee} from './es6/employee';
+var utils = {
+  generateRandom() {
+    return Math.random();
+  },
+  sum(a, b) {
+    return a + b;
+  }
+};
+export default utils;
+```
+3、Import
+```
+import { generateRandom, sum } from 'utility';
+console.log(generateRandom()); //logs a random number
+console.log(sum(1, 2)); //3
 
-var e = new Employee("Taylor");
-e.doWork();
+//import default
+//import utils from 'utility';
+//console.log(utils.generateRandom()); //logs a random number //console.log(utils.sum(1, 2)); //3
 ```

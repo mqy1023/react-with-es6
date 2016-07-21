@@ -4,6 +4,8 @@
 * 三、继承(Inheritance)
 
 #### 一、Classes类 <br />
+ES6中的class类是基于Javascript原有的原型(prototype)继承(inheritance)，<br />
+class并不是新的一种面向对象js模型，而是提供了更简单、更清晰创建对象和处理继承关系的语法【typeof Employee; //'function'】<br />
 1、老方法编写一个类  <br />
 ```
 var Employee = function() { };
@@ -24,7 +26,7 @@ class Employee {
     return "also complete!"  
   }
 }
-
+typeof Employee; // 'function'
 var e = new Employee();
 e.doSomething(); // "complete!"
 ```
