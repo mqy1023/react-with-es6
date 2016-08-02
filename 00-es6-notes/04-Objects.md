@@ -1,8 +1,8 @@
 * 一、Arrays
 * 二、Set 和 WeakSet
 * 三、Map 和 WeakMap
-* 四、Object.assign()
-* 五、ES6的简写
+* 四、ES6的简写
+* 五、Symbols
 
 #### 一、Arrays
 1、find
@@ -97,11 +97,8 @@ var keys = map.keys();
 var firstKey = keys.next().value;
 firstKey; // 1
 ```
-#### 四、Object.assign()
-var obj = {name: "mmm", old: true}
-var ar = Object.assign({}, obj, age: 55);//{name: "mmm", old: true, age: 55}
 
-#### 五、ES6在如下几种的简写
+#### 四、ES6在如下几种的简写
 1、属性初始化的简写
 ```
 var model = 'Ford';
@@ -146,9 +143,35 @@ var Harry = {name: 'Harry'}
 var tri = createTriumvirate(Joe, Ralph, Hary)
 tri.member_Joe; // Joe (the person object)
 ```
+#### 五、Symbols
+1、Symbol() <br/>
+Symbols 是不可改变并且是第一无二的，可以在任意哈希中作一个key。<br/>
+调用 Symbol() 或者 Symbol(description) 可以创造一个第一无二的符号，<br/>
+但是在全局是看不到的。Symbol() 的一个使用情况是给一个类或者命名空间打上补丁，<br/>
+但是可以确定的是你不会去更新它。比如，你想给 React.Component 类添加一个 refreshComponent 方法，<br/>
+但是可以确定的是你不会在之后更新这个方法：
+```
+const refreshComponent = Symbol();
+React.Component.prototype[refreshComponent] = () => {
+    // do something
+}
+```
+2、Symbol.for(key)
+Symbol.for(key) 同样会创造一个独一无二并且不可改变的 Symbol，但是它可以全局看到，<br/>
+两个相同的调用 Symbol.for(key) 会返回同一个 Symbol 类：
+```
+Symbol('foo') === Symbol('foo') // false
+Symbol.for('foo') === Symbol('foo') // false
+Symbol.for('foo') === Symbol.for('foo') // true
+```
+在另一个库中：
+```
+const specialRead = Symbol.for('specialRead');
 
-
-
-
-
-1
+class SomeReadableType {
+    [specialRead]() {
+        const reader = createSomeReaderFrom(this);
+        return reader;
+    }
+}
+```

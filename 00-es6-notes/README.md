@@ -28,8 +28,8 @@
 * 一、Arrays
 * 二、Set 和 WeakSet
 * 三、Map 和 WeakMap
-* 四、Object.assign()
-* 五、ES6的简写
+* 四、ES6的简写
+* 五、Symbols
 
 ### 05-异步Asynchronous
 
@@ -43,8 +43,9 @@
 * 四、ES6模块化
 
 
-#### 参考
+#### 参考链接
 
 * [ES6基础](http://blog.csdn.net/mqy1023/article/details/51814629)
 * [es6_learning_notes](https://github.com/tayiorbeii/es6_learning_notes)
 * [ECMAScript6扫盲](http://www.cnblogs.com/hustskyking/archive/2016/07/11/5659835.html)
+* [es6-cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)

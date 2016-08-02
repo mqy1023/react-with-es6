@@ -73,7 +73,7 @@ define(["employee"], function(Employee){
 1、Export <br />
 可以export出函数、class、var、let、const
 ```
-//utility.js
+//utility.js, 暴露一个对象列表
 function generateRandom() {
   return Math.random();
 }
@@ -103,4 +103,26 @@ console.log(sum(1, 2)); //3
 //import default
 //import utils from 'utility';
 //console.log(utils.generateRandom()); //logs a random number //console.log(utils.sum(1, 2)); //3
+```
+4、重命名导入：
+```
+import {
+    sumTwo as addTwoNumbers,
+    sumThree as sumThreeNumbers
+} from 'math/addition';
+```
+5、导入所有的东西（整体加载）：
+```
+import * as util from 'math/addition';
+
+//可以从一个模块中导入一个值的列表：
+import * as additionUtil from 'math/addition';
+const { sumTwo, sumThree } = additionUtil;
+```
+6、混合默认default的导入和混合导入
+```
+import defaultFoo, { foo1, foo2 } from 'foos';
+
+//react的导入
+import React, { Component, PropTypes } from 'react';
 ```

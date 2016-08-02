@@ -13,7 +13,8 @@ var getPrice = function() { //ES5
 // Implementation with Arrow Function
 var getPrice = () => 5.55;
 ```
-2、箭头函数中`this`总是绑定指向对象自身
+2、箭头函数中`this`总是绑定指向对象自身 <br />
+解决了ES5中需要给回调函数维护一个词法作用域的上下文this(var that = this;) <br/>
 ```
 //ES5中
 var age = 100;
@@ -103,10 +104,12 @@ itr.next(); // { value: undefined, done: true }
 ```
 你可以通过 [Symbol.iterator]() 自定义一个对象的迭代器。
 #### 四、生成器(Generators)
+就像 Promises 可以帮我们避免回调地狱，Generators 可以帮助我们让代码风格更整洁－<br/>
+－用同步的代码风格来写异步代码，它本质上是一个可以暂停计算并且可以随后返回表达式的值的函数。<br/>
 Generator 函数是 ES6 的新特性，它允许一个函数返回的可遍历对象生成多个值。<br/>
 在使用中你会看到 * 语法和一个新的关键词 yield:
 ```
-function *infiniteNumbers() {
+function* infiniteNumbers() {
   var n = 1;
   while (true){
     yield n++;
@@ -126,7 +129,7 @@ let numbers = function*(start, end) {
     yield i;
   }
 };
-
+//使用"for of" with a Generator
 let sum = 0;
 for(let n of numbers(1,5)){
   sum += n;
@@ -135,11 +138,54 @@ for(let n of numbers(1,5)){
 
 sum; // 15
 ```
-使用"for of" with a Generator
-
-
-
-
+可以利用 Generators 来用同步的方式来写异步操作：
+```
+// Hiding asynchronousity with Generators
+function getRequest(url) {
+    getJSON(url, function(response) {
+        generator.next(response);
+    });
+}
+```
+这里的 generator 函数将会返回需要的数据：
+```
+function* getData() {
+    var entry1 = yield getRequest('http://some_api/item1');
+    var data1  = JSON.parse(entry1);
+    var entry2 = yield getRequest('http://some_api/item2');
+    var data2  = JSON.parse(entry2);
+}
+```
+通过 yield，我们可以保证 entry1 有 data1 中我们需要解析并储存的数据。<br />
+虽然我们可以利用 Generators 来用同步的方式来写异步操作，但是确认错误的传播变得不再清晰，我们可以在 Generators 中加上 Promise：
+```
+function request(url) {
+    return new Promise((resolve, reject) => {
+        getJSON(url, resolve);
+    });
+}
+```
+然后我们写一个函数逐步调用 next 并且利用 request 方法产生一个 Promise：
+```
+function iterateGenerator(gen) {
+    var generator = gen();
+    (function iterate(val) {
+        var ret = generator.next();
+        if(!ret.done) {
+            ret.value.then(iterate);
+        }
+    })();
+}
+```
+在 Generators 中加上 Promise 之后我们可以更清晰的使用 Promise 中的 .catch 和 reject来捕捉错误，让我们使用新的 Generator，和之前的还是蛮相似的：
+```
+iterateGenerator(function* getData() {
+    var entry1 = yield request('http://some_api/item1');
+    var data1  = JSON.parse(entry1);
+    var entry2 = yield request('http://some_api/item2');
+    var data2  = JSON.parse(entry2);
+});
+```
 
 
 
