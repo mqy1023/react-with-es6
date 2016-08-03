@@ -31,9 +31,12 @@
 * 四、ES6的简写
 * 五、Symbols
 
-### 05-异步Asynchronous
+### 05-Promise
 
-一、Promises基础
+* 一、Promise
+* 二、Promise基础
+* 三、Promise的API
+* 四、Promise实战
 
 ### 06-Modules模块化
 
