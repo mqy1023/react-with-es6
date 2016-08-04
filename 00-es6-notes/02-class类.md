@@ -7,7 +7,7 @@
 ES6中的class类是基于Javascript原有的原型(prototype)继承(inheritance)，<br />
 class并不是新的一种面向对象js模型，而是提供了更简单、更清晰创建对象和处理继承关系的语法【typeof Employee; //'function'】<br />
 1、老方法编写一个类  <br />
-```
+```javascript
 var Employee = function() { };
 Employee.prototype = { //prototype
   doSomething: function(){
@@ -17,7 +17,7 @@ Employee.prototype = { //prototype
 var e = new Employee();
 ```
 2、ES6编写类
-```
+```javascript
 class Employee {
   doSomething() {
     return "complete!";  
@@ -31,7 +31,7 @@ var e = new Employee();
 e.doSomething(); // "complete!"
 ```
 3、Constructor构造器
-```
+```javascript
 class Employee {
   constructor(name) {
     this._name = name;
@@ -51,7 +51,7 @@ e1.getName(); // "Taylor"
 e2.getName(); // "Charles"
 ```
 #### 二、Getters和Setters
-```
+```javascript
 class Person {
   constructor(name) {
     this.name = name;  
@@ -68,7 +68,7 @@ console.log(e1.name); // "Taylor"
 ```
 #### 三、继承(Inheritance)
 extends继承、super父类、
-```
+```javascript
 //在Getters和Setters的代码基础上
 class Employee extends Person {
   constructor(title, name) {
