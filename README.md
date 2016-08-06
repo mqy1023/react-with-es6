@@ -34,8 +34,7 @@
 * 属性组件(props components)
 * 默认属性(Default Props)
 * state和props混合
-
-## 验证属性(Validating props)
+* 验证属性(Validating props)
 
 ## [Components组件的API](./componentapi)
 
