@@ -23,7 +23,7 @@
 * 四、生成器(Generators)
 
 
-### 04-Objects
+### 04-Object对象
 
 * 一、Arrays
 * 二、Set 和 WeakSet
