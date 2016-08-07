@@ -4,18 +4,49 @@
 * 四、生成器(Generators)
 
 #### 一、箭头函数(Arrow Functions) <br />
-1、省略return
+[《箭头函数》链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions) <br />
+1、基础语法
 ```javascript
-var getPrice = function() { //ES5
-  return 5.55;
-};
+(param1, param2, …, paramN) => { statements }
 
-// Implementation with Arrow Function
-var getPrice = () => 5.55;
-```javascript
-2、箭头函数中`this`总是绑定指向对象自身 <br />
-解决了ES5中需要给回调函数维护一个词法作用域的上下文this(var that = this;) <br/>
+(param1, param2, …, paramN) => expression
+         // 相当于:          => { return expression; }
+
+// 如果只有一个参数，圆括号是可选的:
+(singleParam) => { statements }
+singleParam => { statements }
+
+// 无参数的函数需要使用圆括号:
+() => { statements }
 ```
+2、高级语法
+```javascript
+// 返回对象字面量时应当用圆括号将其包起来:
+params => ({foo: bar})
+
+// 支持 Rest parameters 和 default parameters:
+(param1, param2, ...rest) => { statements }
+(param1 = defaultValue1, param2, …, paramN = defaultValueN) => { statements }
+
+// Destructuring within the parameter list is also supported
+var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c;
+f();  // 6
+```
+3、更短的函数
+```javascript
+var arr = [
+  "Hydrogen",
+  "Helium",
+  "Lithium",
+  "Beryl­lium"
+];
+var a2 = arr.map(function(a){ return a.length });
+//更短的函数写法
+var a3 = arr.map( s => s.length );//[8, 6, 7, 10]
+```
+4、箭头函数中`this`总是绑定指向对象自身 <br />
+解决了ES5中需要给回调函数维护一个词法作用域的上下文this(var that = this;) <br/>
+```javascript
 //ES5中
 var age = 100;
 function Person() {
@@ -39,45 +70,75 @@ function Person(){
     console.log(this.age); //1,2...
   }, 1000);
 }
-
 var person = new Person();
 ```
-3、带一个和多个参数的写法
+5、使用 call 或 apply 调用 <br />
+由于 this 已经在词法层面完成了bound，通过 call() 或 apply() 方法调用一个函数时，只是传入了参数而已，对 this 并没有什么影响：
 ```javascript
-let add = (x,y) => x + y;
-let square = x => x * x;
+var adder = {
+  base : 1,
 
-square(add(2,3)); // 25
-//let add = (x,y) => { //非省略return的写法
-//  let temp = x + y;
-//  return temp;
-//};
-```
-4、无参
-```javascript
-let three = () => 3;
-```
-5、箭头函数作为其他函数的参数
-```javascript
-var numbers = [1, 2, 3, 4];
+  add : function(a) {
+    var f = v => v + this.base;
+    return f(a);
+  },
 
-var sum = 0;
-numbers.forEach(n => sum += n); // 10
-```
-6、返回新的数组
-```javascript
-let numbers = [1, 2, 3, 4];
-const doubled = numbers.map(n => n * 2);
+  addThruCall: function(a) {
+    var f = v => v + this.base;
+    var b = {
+      base : 2
+    };
 
-console.log(doubled); //[2, 4, 6, 8]
-```
+    return f.call(b, a);
+  }
+};
 
-7、返回一个对象
+console.log(adder.add(1));         // 输出 2
+console.log(adder.addThruCall(1)); // 仍然输出 2（而不是3)
+```
+6、arguments 的词法 <br />
+箭头函数不会在其内部暴露出  arguments 对象： arguments.length, arguments[0], arguments[1] 等等，都不会指向箭头函数的 arguments，而是指向了箭头函数所在作用域的一个名为 arguments 的值（如果有的话，否则，就是 undefined）
 ```javascript
-let funcObj = () => ({
-	obj: 123
-})
-//相当于return返回了{obj: 123}对象
+var arguments = 42;
+var arr = () => arguments;
+
+arr(); // 42
+
+function foo() { //foo 的arguments
+  var f = () => arguments[0]; // foo's implicit arguments binding
+  return f(2);
+}
+
+foo(1); // 1
+```
+箭头函数没有自己的 arguments 对象，不过在大多数情形下，rest参数可以给出一个解决方案：
+```javascript
+function foo() {
+  var f = (...args) => args[0];
+  return f(2);
+}
+
+foo(1); // 2
+```
+**更多示例**
+```javascript
+// 一个空箭头函数,返回 undefined
+let empty = () => {};
+
+(() => "foobar")() // 返回 "foobar"
+
+var simple = a => a > 15 ? 15 : a;
+simple(16); // 15
+simple(10); // 10
+
+let max = (a, b) => a > b ? a : b;
+
+// Easy array filtering, mapping, ...
+
+var arr = [5, 6, 13, 0, 1, 18, 23];
+var sum = arr.reduce((a, b) => a + b);  // 66
+var even = arr.filter(v => v % 2 == 0); // [6, 0, 18]
+var double = arr.map(v => v * 2);       // [10, 12, 26, 0, 2, 36, 46]
 ```
 
 #### 二、箭头作为异步callback

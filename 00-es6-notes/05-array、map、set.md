@@ -1,8 +1,7 @@
 * 一、Arrays
 * 二、Set 和 WeakSet
 * 三、Map 和 WeakMap
-* 四、ES6的简写
-* 五、Symbols
+* 四、Symbols
 
 #### 一、Arrays
 1、find
@@ -98,52 +97,7 @@ var firstKey = keys.next().value;
 firstKey; // 1
 ```
 
-#### 四、ES6在如下几种的简写
-1、属性初始化的简写
-```javascript
-var model = 'Ford';
-var year = 1969;
-
-// Old way
-var Classic = {
-  model: model,
-  year: year // { model: 'Ford', year: 1969 }
-}
-
-// ES6 way
-var Classic = {
-  model, year // {model: 'Ford', year: 1969 }
-}
-```
-2、方法初始化的简写
-```javascript
-var server = {
-  getPort: function() {// Old way
-    // stuff
-  }
-  getPort() {// ES6 way
-    //stuff
-  }
-}
-```
-3、字符串级联
-```javascript
-function createTriumvirate(first, second, third) {
-  return {
-    ['member_' + first.name]: first,
-    ['member_' + second.name]: second,
-    ['member_' + third.name]: third
-  }
-}
-
-var Joe = {name: 'Joe'}
-var Ralph = {name: 'Ralph'}
-var Harry = {name: 'Harry'}
-
-var tri = createTriumvirate(Joe, Ralph, Hary)
-tri.member_Joe; // Joe (the person object)
-```
-#### 五、Symbols
+#### 四、Symbols
 1、Symbol() <br/>
 Symbols 是不可改变并且是第一无二的，可以在任意哈希中作一个key。<br/>
 调用 Symbol() 或者 Symbol(description) 可以创造一个第一无二的符号，<br/>
