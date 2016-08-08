@@ -100,7 +100,7 @@ import { generateRandom, sum } from 'utility';
 console.log(generateRandom()); //logs a random number
 console.log(sum(1, 2)); //3
 
-//import default
+//import default导入默认，不需要{ }
 //import utils from 'utility';
 //console.log(utils.generateRandom()); //logs a random number //console.log(utils.sum(1, 2)); //3
 ```
