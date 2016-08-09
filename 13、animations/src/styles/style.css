@@ -1,0 +1,60 @@
+/*bacause " transitionName = "example" "*/
+/*
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity 800ms ease-in;
+}
+
+.example-enter {
+    opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+    opacity: 1;
+}
+
+.example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+}
+*/
+.example-enter {
+  opacity: 0;
+  transform: translateX(-250px);
+}
+.example-enter.example-enter-active {
+  opacity: 1;
+  transform:   translateX(0);
+  transition: 0.3s;
+}
+
+
+.example-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.example-leave.example-leave-active {
+  opacity: 0;
+  transform: translateX(250px);
+  transition: 0.3s;
+}
+
+.example-appear {
+  opacity: 0;
+  transform: translateX(-250px);
+}
+.example-appear.example-appear-active {
+  opacity: 1;
+  transform:   translateX(0);
+  transition: .3s;
+}
