@@ -79,6 +79,7 @@ export default App;
 ```
 ### 注释(Comments)
 可以用单行//或多行/*...*/来注释，当在子元素中写注释，最好包裹上{}
+
 ```javascript
 import React from 'react';
 class App extends React.Component {
@@ -94,6 +95,32 @@ class App extends React.Component {
 }
 export default App;
 ```
-### **命名约定(Naming Convention)**
-HTML标签使用小写，而React组件以**大写**字母为首  <br />
-**【注意】**HTML中的class、for属性在React中分别用className、htmlFor替换
+
+### 不同点
+
+* 1、HTML标签使用小写，而React组件以**大写**字母为首命名
+* 2、`html`的`class`与`for`属性在`js`里是保留字，所以`jsx`里要用别名`className`与`htmlFor`
+* 3、checkbox中正确使用checked属性
+```javascript
+//在其他前端模板引擎中，可以这么做，因为是拼接字符串
+var checkbox = <input type="checkbox" {this.props.selected ? 'checked' : ''} />
+//但在jsx中，这是错误的，因为无法构成键值对，要有个key=value的格式，所以得这样
+var checkbox = <input className="cbName" type="checkbox" checked={this.props.selected} />
+```
+* 4、不能直接写并列的元素
+```javascript
+//这样写是错误的
+var MyComponent = React.createClass({
+    render: function() {
+        return <div>first div</div><div>second div</div>
+    }
+})
+//因为编译后，return 两个函数调用，就算不报错，也只调用第一个函数，不合意图
+var MyComponent = React.createClass({
+    render: function() {
+        return React.createElement('div', null, 'first div') React.createElement('div', null, 'second div')
+    }
+})
+```
+* 5、jsx要求标签一定要闭合，html5中不强制要求闭合的，在jsx也都要闭合，以便识别
+* 6、封装的组件要用大写字母开头，以便跟html标签区分。
