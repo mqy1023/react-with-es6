@@ -53,3 +53,5 @@
 * [es6_learning_notes](https://github.com/tayiorbeii/es6_learning_notes)
 * [ECMAScript6扫盲](http://www.cnblogs.com/hustskyking/archive/2016/07/11/5659835.html)
 * [es6-cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)
+* [ES6 In Depth](https://hacks.mozilla.org/page/2/?s=ES6+In+Depth)
+* [ES6 In Depth中文翻译版](http://bubkoo.com/2015/06/14/es6-in-depth-an-introduction/)
