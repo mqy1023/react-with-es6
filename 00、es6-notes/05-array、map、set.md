@@ -60,6 +60,17 @@ firstEntry[1]; // 'Joe' (the value)
 var firstKey = keys.next().value;
 firstKey; // 0
 ```
+7、forEach遍历 和 filter过滤
+```javascript
+let arrs = [1, 2, 3];
+arrs.forEach(arr => {
+  console.log(arr + 1); // 打印出 2 3 4
+});
+
+arrs = arrs.filter(a => a != 3);
+console.log(arrs);// [1, 2]
+```
+
 #### 二、Set 和 WeakSet
 Set 对象是一组不重复的值，重复的值将被忽略，值类型可以是原始类型和引用类型：
 ```javascript
