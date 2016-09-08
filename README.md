@@ -1,6 +1,6 @@
 # learn react with es6
 
-## 0、[ES6语法基础](./00-es6-notes)
+### 0、[ES6语法基础](./00-es6-notes)
 
 * 变量和参数
 * class类
@@ -9,11 +9,11 @@
 * Promise
 * Modules模块化
 
-## 1、[搭建React开发环境](./environment_setup)
+### 1、[搭建React开发环境](./environment_setup)
 
 * react开发环境搭建
 
-## 2、[JSX语法](./jsx)
+### 2、[JSX语法](./jsx)
 
 * 内嵌元素(Nested Elements)
 * 添加属性(Attributes)
@@ -22,13 +22,13 @@
 * 注释(Comments)
 * 命名约定(Naming Convention)
 
-## 3、[Components组件](./components)
+### 3、[Components组件](./components)
 
 * 无状态组件(Stateless Components)
 * 状态组件(Stateful Components)
 * 函数式声明组件(Function Components)
 
-## 4、[state状态和props属性](./state_props)
+### 4、[state状态和props属性](./state_props)
 
 * 状态组件(state components)
 * 属性组件(props components)
@@ -37,24 +37,28 @@
 * 验证属性(Validating props)
 * **综合小例子(contactsApp)**
 
-## 5、[Components组件的API](./componentapi)
+### 5、[Components组件的API](./componentapi)
 
 * 设置状态setState()
 * 强制更新ForceUpdate
 * 查找DOM节点Find Dom Node
 
-## 6、[Components组件生命周期](./lifecyclemethods)
+### 6、[Components组件生命周期](./lifecyclemethods)
 
-## 7、[Forms表单](./forms)
+### 7、[Forms表单](./forms)
 
-## 8、[Event事件](./events)
+### 8、[Event事件](./events)
 
-## 9、[ref元素引用](./ref)
+### 9、[ref元素引用](./ref)
 
-## 10、[key键属性](./key)
+### 10、[key键属性](./key)
 
-## 11、[router路由](./router)
+### 11、[router路由](./router)
 
-## 12、[redux架构](./redux)
+### 12、[redux架构](./redux)
 
-## 13、[Animations动画](./animations)
+### 13、[Animations动画](./animations)
+
+* **
+
+[其他入门推荐](https://github.com/joemaddalone/egghead-react-fundamentals-es6/tree/master/lessons)
