@@ -72,7 +72,7 @@ render() {
  ```
 
 ## 组件生命周期例子分析
-![组件生命周期](./images/lifecycle.png)
+![组件生命周期](../images/lifecycle.png)
 
 * 1、组件渲染成功，会调用componentWillMount和componentDidMount
 
