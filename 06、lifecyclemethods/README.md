@@ -40,6 +40,7 @@ componentWillReceiveProps(nextProps) {
 * 2、shouldComponentUpdate：接受新props或state时调用; 如果该方法返回false，则componentWillUpdate(nextProps, nextState)及其之后执行的方法都不会执行，组件则不会进行重新渲染。
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
+  // return nextProps.val % 5 === 0;
   return nextProps.id !== this.props.id;
 }
 ```
@@ -54,7 +55,12 @@ componentWillUpdate(nextProps, nextState){
     }
   }
 ```
-* 4、componentDidUpdate，在在render()渲染方法后被调用
+* 4、componentDidUpdate，在render()渲染方法后被调用
+```
+componentDidUpdate(preProps, preState) {
+  console.log(`preProps: ${preProps.val}`); // 打印后面的render的前一个值
+}
+```
 * **5、render方法用于渲染组件。在初始化阶段和运行期阶段都会执行**
 ```javascript
 render() {

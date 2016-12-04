@@ -27,6 +27,7 @@
 * 无状态组件(Stateless Components)
 * 状态组件(Stateful Components)
 * 函数式声明组件(Function Components)
+* 可重用组件
 
 ### 4、[state状态和props属性](./state_props)
 
@@ -35,6 +36,7 @@
 * 默认属性(Default Props)
 * state和props混合
 * 验证属性(Validating props)
+* 自定义属性验证
 * **综合小例子(contactsApp)**
 
 ### 5、[Components组件的API](./componentapi)
@@ -61,4 +63,6 @@
 
 * **
 
-[其他入门推荐](https://github.com/joemaddalone/egghead-react-fundamentals-es6/tree/master/lessons)
+* [ES6入门](https://github.com/joemaddalone/egghead-react-fundamentals-es6/tree/master/lessons)
+
+* [react入门](https://egghead.io/courses/react-fundamentals)

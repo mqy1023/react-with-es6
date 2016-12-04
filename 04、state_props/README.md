@@ -30,5 +30,9 @@ state状态,仅和自身有关，不受父组件控制
 ```
 “Warning: Failed propType: Invalid prop `propNumber` of type `string` supplied to `App`, expected `number`.”
 ```
+### 自定义验证属性(custom Validating props)
+* 1、属性缺失
+* 2、属性值长度不够
+
 ### 综合小例子(contactsApp)
 [参考链接](https://github.com/pro-react/sample-code/tree/master/chapter%203/contactsApp)
